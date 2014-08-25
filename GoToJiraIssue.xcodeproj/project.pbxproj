@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B4B3B26199914F800D742AC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4B3B25199914F800D742AC /* AppKit.framework */; };
+		0B4B3B28199914F800D742AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4B3B27199914F800D742AC /* Foundation.framework */; };
+		0B4B3B2E199914F800D742AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B4B3B2C199914F800D742AC /* InfoPlist.strings */; };
+		0B4B3B31199914F800D742AC /* GoToJiraIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4B3B30199914F800D742AC /* GoToJiraIssue.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0B4B3B22199914F800D742AC /* GoToJiraIssue.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoToJiraIssue.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B4B3B25199914F800D742AC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		0B4B3B27199914F800D742AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0B4B3B2B199914F800D742AC /* GoToJiraIssue-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoToJiraIssue-Info.plist"; sourceTree = "<group>"; };
+		0B4B3B2D199914F800D742AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0B4B3B2F199914F800D742AC /* GoToJiraIssue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoToJiraIssue.h; sourceTree = "<group>"; };
+		0B4B3B30199914F800D742AC /* GoToJiraIssue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoToJiraIssue.m; sourceTree = "<group>"; };
+		0B4B3B32199914F800D742AC /* GoToJiraIssue-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoToJiraIssue-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B4B3B1F199914F800D742AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B4B3B26199914F800D742AC /* AppKit.framework in Frameworks */,
+				0B4B3B28199914F800D742AC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B4B3B19199914F800D742AC = {
+			isa = PBXGroup;
+			children = (
+				0B4B3B29199914F800D742AC /* GoToJiraIssue */,
+				0B4B3B24199914F800D742AC /* Frameworks */,
+				0B4B3B23199914F800D742AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B4B3B23199914F800D742AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B4B3B22199914F800D742AC /* GoToJiraIssue.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B4B3B24199914F800D742AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B4B3B25199914F800D742AC /* AppKit.framework */,
+				0B4B3B27199914F800D742AC /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0B4B3B29199914F800D742AC /* GoToJiraIssue */ = {
+			isa = PBXGroup;
+			children = (
+				0B4B3B2F199914F800D742AC /* GoToJiraIssue.h */,
+				0B4B3B30199914F800D742AC /* GoToJiraIssue.m */,
+				0B4B3B2A199914F800D742AC /* Supporting Files */,
+			);
+			path = GoToJiraIssue;
+			sourceTree = "<group>";
+		};
+		0B4B3B2A199914F800D742AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0B4B3B2B199914F800D742AC /* GoToJiraIssue-Info.plist */,
+				0B4B3B2C199914F800D742AC /* InfoPlist.strings */,
+				0B4B3B32199914F800D742AC /* GoToJiraIssue-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B4B3B21199914F800D742AC /* GoToJiraIssue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B4B3B35199914F800D742AC /* Build configuration list for PBXNativeTarget "GoToJiraIssue" */;
+			buildPhases = (
+				0B4B3B1E199914F800D742AC /* Sources */,
+				0B4B3B1F199914F800D742AC /* Frameworks */,
+				0B4B3B20199914F800D742AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoToJiraIssue;
+			productName = GoToJiraIssue;
+			productReference = 0B4B3B22199914F800D742AC /* GoToJiraIssue.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B4B3B1A199914F800D742AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = 1und1;
+			};
+			buildConfigurationList = 0B4B3B1D199914F800D742AC /* Build configuration list for PBXProject "GoToJiraIssue" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0B4B3B19199914F800D742AC;
+			productRefGroup = 0B4B3B23199914F800D742AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B4B3B21199914F800D742AC /* GoToJiraIssue */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B4B3B20199914F800D742AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B4B3B2E199914F800D742AC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B4B3B1E199914F800D742AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B4B3B31199914F800D742AC /* GoToJiraIssue.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0B4B3B2C199914F800D742AC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B4B3B2D199914F800D742AC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0B4B3B33199914F800D742AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0B4B3B34199914F800D742AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0B4B3B36199914F800D742AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoToJiraIssue/GoToJiraIssue-Prefix.pch";
+				INFOPLIST_FILE = "GoToJiraIssue/GoToJiraIssue-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		0B4B3B37199914F800D742AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoToJiraIssue/GoToJiraIssue-Prefix.pch";
+				INFOPLIST_FILE = "GoToJiraIssue/GoToJiraIssue-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B4B3B1D199914F800D742AC /* Build configuration list for PBXProject "GoToJiraIssue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B4B3B33199914F800D742AC /* Debug */,
+				0B4B3B34199914F800D742AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B4B3B35199914F800D742AC /* Build configuration list for PBXNativeTarget "GoToJiraIssue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B4B3B36199914F800D742AC /* Debug */,
+				0B4B3B37199914F800D742AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B4B3B1A199914F800D742AC /* Project object */;
+}
