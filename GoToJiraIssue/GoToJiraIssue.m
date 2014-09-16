@@ -49,7 +49,6 @@ static GoToJiraIssue *sharedPlugin;
 
 		while (view != nil) {
             if ([view isMemberOfClass:NSClassFromString(@"NSTextField")] && [[view superview] isMemberOfClass:NSClassFromString(@"IDESourceControlLogItemView")]) {
-                NSLog(@"found the log textfield!");
                 NSTextField *tf = (NSTextField *)view;
                 if ([self findIssueInText:tf.stringValue]) {
                     return event;
@@ -63,21 +62,32 @@ static GoToJiraIssue *sharedPlugin;
 
 - (BOOL)findIssueInText:(NSString *)text
 {
-    NSRange range = [text rangeOfString:@"MAMIOS-" options:NSCaseInsensitiveSearch];
-    if (range.location != NSNotFound) {
-        NSString *issueStr = [text substringWithRange:NSMakeRange(range.location, range.length+4)];
-        // strip off whitespace and newlines
-        issueStr = [issueStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        // validate the found string
-        NSString *lastCharacter = [issueStr substringFromIndex:issueStr.length-1];
-        if ([lastCharacter isEqualToString:@":"] || [lastCharacter isEqualToString:@"\""]) {
-            issueStr = [issueStr substringToIndex:issueStr.length-1];
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(MAMIOS|MMSNGR)-(\\d{1,4})"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    NSArray *matches = [regex matchesInString:text
+                                      options:0
+                                        range:NSMakeRange(0, [text length])];
+    
+    if (matches.count) {
+        for (NSTextCheckingResult *match in matches) {
+            NSRange matchRange = [match range];
+            NSString *issueStr = [text substringWithRange:matchRange];
+//            NSLog(@"matchRange: %@", issueStr);
+            [self openIssueInBrowser:issueStr];
         }
-        NSURL *issueUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://dev-jira.1and1.org/browse/%@", issueStr]];
-        [[NSWorkspace sharedWorkspace] openURL:issueUrl];
         return YES;
     }
-    return NO;
+    else {
+        return NO;
+    }
+}
+
+- (void)openIssueInBrowser:(NSString *)issueStr
+{
+    NSURL *issueUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://dev-jira.1and1.org/browse/%@", issueStr]];
+    [[NSWorkspace sharedWorkspace] performSelector:@selector(openURL:) withObject:issueUrl afterDelay:0.1];
 }
 
 @end
