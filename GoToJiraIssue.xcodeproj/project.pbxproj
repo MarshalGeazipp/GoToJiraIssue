@@ -11,8 +11,9 @@
 		0B4B3B28199914F800D742AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4B3B27199914F800D742AC /* Foundation.framework */; };
 		0B4B3B2E199914F800D742AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B4B3B2C199914F800D742AC /* InfoPlist.strings */; };
 		0B4B3B31199914F800D742AC /* GoToJiraIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4B3B30199914F800D742AC /* GoToJiraIssue.m */; };
-		E51208881ACC4C2100AE4CCD /* GTJSettingPaneWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51208871ACC4C2100AE4CCD /* GTJSettingPaneWindowController.xib */; };
 		E512088B1ACC4C5400AE4CCD /* GTJSettingPaneWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E512088A1ACC4C5400AE4CCD /* GTJSettingPaneWindowController.m */; };
+		E5274E7E1ACC7CB7007B9FD6 /* GTJSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5274E7D1ACC7CB7007B9FD6 /* GTJSettingManager.m */; };
+		E5BA51511ACC50A400F17114 /* GTJSettingPaneWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BA51501ACC50A400F17114 /* GTJSettingPaneWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,9 +25,11 @@
 		0B4B3B2F199914F800D742AC /* GoToJiraIssue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoToJiraIssue.h; sourceTree = "<group>"; };
 		0B4B3B30199914F800D742AC /* GoToJiraIssue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoToJiraIssue.m; sourceTree = "<group>"; };
 		0B4B3B32199914F800D742AC /* GoToJiraIssue-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoToJiraIssue-Prefix.pch"; sourceTree = "<group>"; };
-		E51208871ACC4C2100AE4CCD /* GTJSettingPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTJSettingPaneWindowController.xib; sourceTree = "<group>"; };
 		E51208891ACC4C5400AE4CCD /* GTJSettingPaneWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTJSettingPaneWindowController.h; sourceTree = "<group>"; };
 		E512088A1ACC4C5400AE4CCD /* GTJSettingPaneWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTJSettingPaneWindowController.m; sourceTree = "<group>"; };
+		E5274E7C1ACC7CB7007B9FD6 /* GTJSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTJSettingManager.h; sourceTree = "<group>"; };
+		E5274E7D1ACC7CB7007B9FD6 /* GTJSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTJSettingManager.m; sourceTree = "<group>"; };
+		E5BA51501ACC50A400F17114 /* GTJSettingPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTJSettingPaneWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +77,11 @@
 				0B4B3B2F199914F800D742AC /* GoToJiraIssue.h */,
 				0B4B3B30199914F800D742AC /* GoToJiraIssue.m */,
 				0B4B3B2A199914F800D742AC /* Supporting Files */,
-				E51208871ACC4C2100AE4CCD /* GTJSettingPaneWindowController.xib */,
 				E51208891ACC4C5400AE4CCD /* GTJSettingPaneWindowController.h */,
 				E512088A1ACC4C5400AE4CCD /* GTJSettingPaneWindowController.m */,
+				E5BA51501ACC50A400F17114 /* GTJSettingPaneWindowController.xib */,
+				E5274E7C1ACC7CB7007B9FD6 /* GTJSettingManager.h */,
+				E5274E7D1ACC7CB7007B9FD6 /* GTJSettingManager.m */,
 			);
 			path = GoToJiraIssue;
 			sourceTree = "<group>";
@@ -142,7 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E51208881ACC4C2100AE4CCD /* GTJSettingPaneWindowController.xib in Resources */,
+				E5BA51511ACC50A400F17114 /* GTJSettingPaneWindowController.xib in Resources */,
 				0B4B3B2E199914F800D742AC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5274E7E1ACC7CB7007B9FD6 /* GTJSettingManager.m in Sources */,
 				E512088B1ACC4C5400AE4CCD /* GTJSettingPaneWindowController.m in Sources */,
 				0B4B3B31199914F800D742AC /* GoToJiraIssue.m in Sources */,
 			);

@@ -8,6 +8,7 @@
 
 #import "GoToJiraIssue.h"
 #import "GTJSettingPaneWindowController.h"
+#import "GTJSettingManager.h"
 
 static GoToJiraIssue *sharedPlugin;
 
@@ -51,7 +52,7 @@ static GoToJiraIssue *sharedPlugin;
         NSView *view = [[event.window contentView] hitTest:[event locationInWindow]];
         
         while (view != nil) {
-            if ([view isMemberOfClass:NSClassFromString(@"NSTextField")] && [[view superview] isMemberOfClass:NSClassFromString(@"IDESourceControlLogItemView")]) {
+            if ([view isMemberOfClass:NSClassFromString(@"NSTextField")] && ([[view superview] isMemberOfClass:NSClassFromString(@"IDESourceControlLogItemView")]||[[view superview] isMemberOfClass:NSClassFromString(@"IDESourceControlMiniLogItemView")])) {
                 NSTextField *tf = (NSTextField *)view;
                 if ([self findIssueInText:tf.stringValue]) {
                     return event;
@@ -66,7 +67,7 @@ static GoToJiraIssue *sharedPlugin;
 - (BOOL)findIssueInText:(NSString *)text
 {
     NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(MAMIOS|MMSNGR)-(\\d{1,4})"
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([a-zA-Z]+)-(\\d{1,4})"
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     NSArray *matches = [regex matchesInString:text
@@ -89,7 +90,7 @@ static GoToJiraIssue *sharedPlugin;
 
 - (void)openIssueInBrowser:(NSString *)issueStr
 {
-    NSURL *issueUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://dev-jira.1and1.org/browse/%@", issueStr]];
+    NSURL *issueUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/browse/%@",[GTJSettingManager retrieveSettingForKey:kJiraHostKey], issueStr]];
     [[NSWorkspace sharedWorkspace] performSelector:@selector(openURL:) withObject:issueUrl afterDelay:0.1];
 }
 
