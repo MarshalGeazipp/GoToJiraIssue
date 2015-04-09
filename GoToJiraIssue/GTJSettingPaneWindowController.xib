@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="GTJSettingPaneWindowController">
+            <connections>
+                <outlet property="tfHostName" destination="FLU-Wf-Izi" id="aR6-9t-Ce5"/>
+                <outlet property="tfHostNameTitle" destination="FU3-2t-pym" id="XN6-Zd-zwN"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="GoToJira Setting" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="480" height="475"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="475"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FU3-2t-pym">
+                        <rect key="frame" x="18" y="435" width="104" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="osB-e1-MYY"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="left" title="Jira Host Name" id="1AX-Un-rQC">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="249" verticalHuggingPriority="749" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="FLU-Wf-Izi">
+                        <rect key="frame" x="128" y="433" width="332" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="SZF-uz-tEh"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="https://jirahost.com" drawsBackground="YES" id="bUa-xa-y7D">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="FLU-Wf-Izi" secondAttribute="trailing" constant="20" id="2Me-2S-kqv"/>
+                    <constraint firstItem="FLU-Wf-Izi" firstAttribute="leading" secondItem="FU3-2t-pym" secondAttribute="trailing" constant="8" id="HKj-cy-BJe"/>
+                    <constraint firstItem="FU3-2t-pym" firstAttribute="baseline" secondItem="FLU-Wf-Izi" secondAttribute="baseline" id="c6a-pq-sf5"/>
+                    <constraint firstItem="FLU-Wf-Izi" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="hyE-NS-j9u"/>
+                    <constraint firstItem="FU3-2t-pym" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="pI2-Py-C2j"/>
+                    <constraint firstItem="FU3-2t-pym" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="qWE-xh-XX9"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="323" y="537.5"/>
+        </window>
+    </objects>
+</document>

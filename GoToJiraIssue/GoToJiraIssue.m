@@ -7,12 +7,15 @@
 //
 
 #import "GoToJiraIssue.h"
+#import "GTJSettingPaneWindowController.h"
+#import "GTJSettingManager.h"
 
 static GoToJiraIssue *sharedPlugin;
 
 @interface GoToJiraIssue()
 
 @property (nonatomic, strong) NSBundle *bundle;
+@property (nonatomic, strong) GTJSettingPaneWindowController *settingPanel;
 @end
 
 
@@ -36,34 +39,35 @@ static GoToJiraIssue *sharedPlugin;
         self.bundle = plugin;
         
         [self registerClickListener];
+        [self addSettingMenu];
     }
-
+    
     return self;
 }
 
 - (void)registerClickListener
 {
-	[NSEvent addLocalMonitorForEventsMatchingMask:NSLeftMouseDownMask handler:^(NSEvent *event) {
+    [NSEvent addLocalMonitorForEventsMatchingMask:NSLeftMouseDownMask handler:^(NSEvent *event) {
         
-		NSView *view = [[event.window contentView] hitTest:[event locationInWindow]];
-
-		while (view != nil) {
-            if ([view isMemberOfClass:NSClassFromString(@"NSTextField")] && [[view superview] isMemberOfClass:NSClassFromString(@"IDESourceControlLogItemView")]) {
+        NSView *view = [[event.window contentView] hitTest:[event locationInWindow]];
+        
+        while (view != nil) {
+            if ([view isMemberOfClass:NSClassFromString(@"NSTextField")] && ([[view superview] isMemberOfClass:NSClassFromString(@"IDESourceControlLogItemView")]||[[view superview] isMemberOfClass:NSClassFromString(@"IDESourceControlMiniLogItemView")])) {
                 NSTextField *tf = (NSTextField *)view;
                 if ([self findIssueInText:tf.stringValue]) {
                     return event;
                 }
             }
-			view = [view superview];
-		}
-		return event;
-	}];
+            view = [view superview];
+        }
+        return event;
+    }];
 }
 
 - (BOOL)findIssueInText:(NSString *)text
 {
     NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(MAMIOS|MMSNGR)-(\\d{1,4})"
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([a-zA-Z]+)-(\\d{1,4})"
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     NSArray *matches = [regex matchesInString:text
@@ -74,7 +78,7 @@ static GoToJiraIssue *sharedPlugin;
         for (NSTextCheckingResult *match in matches) {
             NSRange matchRange = [match range];
             NSString *issueStr = [text substringWithRange:matchRange];
-//            NSLog(@"matchRange: %@", issueStr);
+            //            NSLog(@"matchRange: %@", issueStr);
             [self openIssueInBrowser:issueStr];
         }
         return YES;
@@ -86,8 +90,26 @@ static GoToJiraIssue *sharedPlugin;
 
 - (void)openIssueInBrowser:(NSString *)issueStr
 {
-    NSURL *issueUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://dev-jira.1and1.org/browse/%@", issueStr]];
+    NSURL *issueUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/browse/%@",[GTJSettingManager retrieveSettingForKey:kJiraHostKey], issueStr]];
     [[NSWorkspace sharedWorkspace] performSelector:@selector(openURL:) withObject:issueUrl afterDelay:0.1];
+}
+
+-(void) addSettingMenu
+{
+    NSMenuItem *editMenuItem = [[NSApp mainMenu] itemWithTitle:@"Window"];
+    if (editMenuItem) {
+        [[editMenuItem submenu] addItem:[NSMenuItem separatorItem]];
+        
+        NSMenuItem *newMenuItem = [[NSMenuItem alloc] initWithTitle:@"GoToJiraIssue" action:@selector(showSettingPanel:) keyEquivalent:@""];
+        
+        [newMenuItem setTarget:self];
+        [[editMenuItem submenu] addItem:newMenuItem];
+    }
+}
+
+-(void) showSettingPanel:(NSNotification *)noti {
+    self.settingPanel = [[GTJSettingPaneWindowController alloc] initWithWindowNibName:@"GTJSettingPaneWindowController"];
+    [self.settingPanel showWindow:self.settingPanel];
 }
 
 @end
