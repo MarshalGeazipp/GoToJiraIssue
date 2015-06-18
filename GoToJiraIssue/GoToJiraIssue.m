@@ -39,10 +39,19 @@ static GoToJiraIssue *sharedPlugin;
         self.bundle = plugin;
         
         [self registerClickListener];
-        [self addSettingMenu];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidFinishLaunching:)
+                                                     name:NSApplicationDidFinishLaunchingNotification
+                                                   object:nil];
+
     }
     
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)registerClickListener
@@ -94,13 +103,16 @@ static GoToJiraIssue *sharedPlugin;
     [[NSWorkspace sharedWorkspace] performSelector:@selector(openURL:) withObject:issueUrl afterDelay:0.1];
 }
 
--(void) addSettingMenu
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-    NSMenuItem *editMenuItem = [[NSApp mainMenu] itemWithTitle:@"Window"];
+    NSMenuItem *editMenuItem = [[NSApp mainMenu] itemWithTitle:@"Source Control"];
     if (editMenuItem) {
         [[editMenuItem submenu] addItem:[NSMenuItem separatorItem]];
         
-        NSMenuItem *newMenuItem = [[NSMenuItem alloc] initWithTitle:@"GoToJiraIssue" action:@selector(showSettingPanel:) keyEquivalent:@""];
+        NSString *versionString = [[NSBundle bundleForClass:[self class]] objectForInfoDictionaryKey:@"CFBundleVersion"];
+        NSMenuItem *newMenuItem = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"GoToJiraIssue (%@)", versionString]
+                                                             action:@selector(showSettingPanel:)
+                                                      keyEquivalent:@""];
         
         [newMenuItem setTarget:self];
         [[editMenuItem submenu] addItem:newMenuItem];
