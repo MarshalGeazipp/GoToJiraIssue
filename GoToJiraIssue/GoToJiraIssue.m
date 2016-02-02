@@ -76,7 +76,7 @@ static GoToJiraIssue *sharedPlugin;
 - (BOOL)findIssueInText:(NSString *)text
 {
     NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([a-zA-Z]+)-(\\d{1,4})"
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"([a-zA-Z]+)-(\\d{1,6)"
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     NSArray *matches = [regex matchesInString:text
